@@ -14,7 +14,8 @@ clear;
 dydx = @(x, y) (-2*pi*exp(-x)*sin(2*pi*x) - y);
 h = 0.001;
 
-w = metodaEulera(dydx, h, 0, 1, 10)
+w = metodaEulera(dydx, h, 0, 1, 10);
+w = metodaHeuna(dydx, h, 0, 1, 10);
 
 plot(w(1, :), w(2, :))
 
