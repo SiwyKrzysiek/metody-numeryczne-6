@@ -34,6 +34,12 @@ plot(wynikHeuna(1, :), wynikHeuna(2, :), 'x', 'DisplayName','Rozwiazania metoda 
 
 legend();
 
+bledyEulera = abs(y - wynikEulera(2, :));
+maksBladEulera = max(bledyEulera)
+
+bledyHeuna = abs(y - wynikHeuna(2, :));
+maksBladHeuna = max(bledyHeuna)
+
 %%
 h = 2;
 b = 5
