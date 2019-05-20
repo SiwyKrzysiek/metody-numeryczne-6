@@ -45,3 +45,39 @@ h = 2;
 b = 5
 0:h:b
 length(0:h:b)
+
+%% Zadanie 2
+clc;
+clear;
+
+dxdt = @(x, y, t) (y);
+dydt = @(x, y, t) (-x);
+
+x0 = 0;
+y0 = 1;
+t0 = 0;
+t_max = 10;
+h_array = [0.001];
+
+for h = h_array
+    wynikiEulera = metodaEuleraDlaUkladow(dxdt, dydt, h, x0, y0, t0, t_max);
+    plot(wynikiEulera(3, :), wynikiEulera(1, :), '-', 'DisplayName','Rozwiazania metoda Eulera');
+    hold on;
+    plot(wynikiEulera(3, :), wynikiEulera(2, :), '-', 'DisplayName','Rozwiazania metoda Eulera');
+end
+
+%%
+% h_array = [0.1; 0.01; 0.001];
+% 
+% for h = h_array
+%     wynikiEulera = metodaEuleraDlaUkladow(dxdt, dydt, h, x0, y0, t0, t_max);
+%     
+%     % TODO metoda Heuna
+%     % TODO policzy? b?edy
+% end
+% 
+% plot(wynikiEulera(3, :), wynikiEulera(1, :), '-', 'DisplayName','Rozwiazania metoda Eulera');
+% hold on;
+% plot(wynikiEulera(3, :), wynikiEulera(2, :), '-', 'DisplayName','Rozwiazania metoda Eulera');
+
+% TODO metoda analityczna
