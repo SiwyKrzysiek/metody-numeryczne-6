@@ -99,3 +99,22 @@ plot(wynikiHeuna(3, :), wynikiHeuna(1, :), 'o', 'DisplayName','Rozwiazania metod
 % plot(wynikiEulera(3, :), wynikiEulera(2, :), '-', 'DisplayName','Rozwiazania metoda Eulera');
 
 % TODO metoda analityczna
+
+%% Zadanie 3
+clc;
+clear;
+
+dxdt = @(x, y, t) (y);
+dydt = @(x, y, t) (-x);
+
+x0 = 0;
+y0 = 1;
+t0 = 0;
+t_max = 10;
+h = 0.001;
+
+q = 1;
+
+wyniki = metodaAdamsaBashforthaDlalUkladow(dxdt, dydt, h, x0, y0, t0, t_max, q);
+
+plot(wyniki(3, :), wyniki(1, :))
