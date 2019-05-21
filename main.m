@@ -115,6 +115,11 @@ h = 0.001;
 
 q = 1;
 
-wyniki = metodaAdamsaBashforthaDlalUkladow(dxdt, dydt, h, x0, y0, t0, t_max, q);
+wynikiDwukrokowe = metodaAdamsaBashforthaDlalUkladow(dxdt, dydt, h, x0, y0, t0, t_max, 1);
+wynikiTrzykrokowe = metodaAdamsaBashforthaDlalUkladow(dxdt, dydt, h, x0, y0, t0, t_max, 2);
+% Wyniki analityczne
+T = 0:h:t_max;
+X = sin(T);
 
-plot(wyniki(3, :), wyniki(1, :))
+bladDwykrokowy = max(abs(wynikiDwukrokowe(1, :) - X))
+bladTrzykrokowy = max(abs(wynikiTrzykrokowe(1, :) - X))
